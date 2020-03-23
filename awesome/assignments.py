@@ -1,11 +1,12 @@
 from nonebot import on_command, CommandSession
+import nonebot
 import sys
 import requests
 import datetime
 import time
 
 course_id = {"VX251": 1555, "VE401": 1532,
-             "TH029": "1574", "TH020": "1577", "TH007": "1576"}
+             "TH029": 1574, "TH020": 1577, "TH007": 1576}
 user_id = 3552
 canvas_url = "https://www.umjicanvas.com"
 payload = {
@@ -54,3 +55,24 @@ async def _(session: CommandSession):
         return None
     return
     
+
+@nonebot.scheduler.scheduled_job('cron', day_of_week="0-6", hour=11)
+async def cb():
+    bot_ = nonebot.get_bot()
+    try:
+        await bot_.send_private_msg(user_id=940012978, message="在？不写点作业？")
+        time.sleep(1)
+        await bot_.send_private_msg(user_id=940012978, message=getRet())
+    except Exception as e:
+        nonebot.logger.exception(e)
+
+
+@nonebot.scheduler.scheduled_job('cron', day_of_week="0-6", hour=19)
+async def cb():
+    bot_ = nonebot.get_bot()
+    try:
+        await bot_.send_private_msg(user_id=940012978, message="在？不写点作业？")
+        time.sleep(1)
+        await bot_.send_private_msg(user_id=940012978, message=getRet())
+    except Exception as e:
+        nonebot.logger.exception(e)

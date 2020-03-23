@@ -4,10 +4,10 @@ from nonebot import on_notice, NoticeSession, on_request, RequestSession
 from nonebot.helpers import render_expression as __
 
 GROUP_GREETING = (
-    '欢迎新同学 {name}[]！[CQ:face,id=63][CQ:face,id=63][CQ:face,id=63]',
-    '[CQ:face,id=99]欢迎新成员～',
-    '欢迎 {name}👏👏～',
-    '[CQ:at,qq={user_id}] 欢迎欢迎👏',
+    '欢迎新车车人 {name}！[CQ:face,id=63][CQ:face,id=63][CQ:face,id=63]',
+    '[CQ:face,id=99]欢迎新车车人～',
+    '欢迎车车人 {name}👏👏～',
+    '[CQ:at,qq={user_id}] 欢迎欢迎车车人👏',
 )
 
 

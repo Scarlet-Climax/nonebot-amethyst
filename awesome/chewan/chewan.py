@@ -12,7 +12,7 @@ async def recognize(session: CommandSession):
     picname = session.get('picname', prompt='？')
     # 获取城市的天气预报
     await session.send("让我康康")
-    report = requests.get('http://127.0.0.1:5000/',
+    report = requests.get('http://127.0.0.1:8108/chewan',
                           data={'picname': picname, "link": link})
     # 向用户发送天气预报
     await session.send(report.text)
@@ -22,10 +22,10 @@ async def recognize(session: CommandSession):
 # 命令解析器用于将用户输入的参数解析成命令真正需要的数据
 @recognize.args_parser
 async def _(session: CommandSession):
-    if session.ctx.get('group_id') not in (686922858,):
-        return None
-    if session.ctx.get('user_id') not in (940012978,):
-        return None
+    # if session.ctx.get('group_id') not in (686922858,):
+    #     return None
+    # if session.ctx.get('user_id') not in (940012978,):
+    #     return None
     # 去掉消息首尾的空白符
     txt = session.current_arg
     # text=session.msg
