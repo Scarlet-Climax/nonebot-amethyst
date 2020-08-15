@@ -6,7 +6,7 @@ cnt = 0
 
 @on_natural_language(only_to_me=False)
 async def _(session: NLPSession):
-    if session.ctx.get('group_id') not in (1078259793, 686922858):
+    if session.ctx.get('group_id') not in (1078259793, 686922858, 1060049943, 966043146, 925787157):
         return None
 
     global _last_session, cnt

@@ -1,0 +1,1 @@
+curl -H "Content-Type:application/json" -X POST -d '{"group_id": "686922858", "message":"[CQ:image,file=cf17e88d6d0f494ddf500821911eaef3.image]","auto_escape":"false"}' http://127.0.0.1:5700/send_group_msg

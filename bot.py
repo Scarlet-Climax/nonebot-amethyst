@@ -7,10 +7,7 @@ import awesome.THdays
 import time
 import scheduler
 
-        
 
-
-        
 nonebot.init(config)
 
 if __name__ == '__main__':
@@ -20,7 +17,7 @@ if __name__ == '__main__':
         'awesome'
     )
     nonebot.load_plugins(
-        path.join(path.dirname(__file__), 'awesome','chewan'),
+        path.join(path.dirname(__file__), 'awesome', 'chewan'),
         'awesome.chewan'
     )
     nonebot.load_plugins(
@@ -30,5 +27,9 @@ if __name__ == '__main__':
     nonebot.load_plugins(
         path.join(path.dirname(__file__), 'awesome', 'mathpix'),
         'awesome.mathpix'
+    )
+    nonebot.load_plugins(
+        path.join(path.dirname(__file__), 'CTF'),
+        'CTF'
     )
     nonebot.run()

@@ -5,8 +5,8 @@ import requests
 import datetime
 import time
 
-course_id = {"VX251": 1555, "VE401": 1532,
-             "TH029": 1574, "TH020": 1577, "TH007": 1576}
+course_id = {"VG101": 1627, "VE203": 1599,
+             "VE216": 1601, "VE230": 1706, "VE280": 1604, "VR380": 1658}
 user_id = 3552
 canvas_url = "https://www.umjicanvas.com"
 payload = {

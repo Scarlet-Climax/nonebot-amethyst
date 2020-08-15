@@ -12,14 +12,25 @@ async def recognize(session: CommandSession):
     picname = session.get('picname', prompt='？')
     # 获取城市的天气预报
     await session.send("让我康康")
-    report = requests.get('http://127.0.0.1:8108/chewan',
-                          data={'picname': picname, "link": link})
-    # 向用户发送天气预报
+    report = requests.get('http://118.25.94.244:16008/chewan',
+                          data={'picname': picname, "link": link, "mode": "touhou"})
     await session.send(report.text)
 
 
+@on_command('tag', only_to_me=False)
+async def tag(session: CommandSession):
+    # 从会话状态（session.state）中获取城市名称（city），如果当前不存在，则询问用户
+    link = session.get('link', prompt='图好像有点问题')
+    picname = session.get('picname', prompt='？')
+    # 获取城市的天气预报
+    await session.send("让我康康")
+    report = requests.get('http://118.25.94.244:16008/chewan',
+                          data={'picname': picname, "link": link, "mode": "all"})
+    await session.send(report.text)
+
 # weather.args_parser 装饰器将函数声明为 weather 命令的参数解析器
 # 命令解析器用于将用户输入的参数解析成命令真正需要的数据
+@tag.args_parser
 @recognize.args_parser
 async def _(session: CommandSession):
     # if session.ctx.get('group_id') not in (686922858,):
@@ -29,7 +40,7 @@ async def _(session: CommandSession):
     # 去掉消息首尾的空白符
     txt = session.current_arg
     # text=session.msg
-    picname = re.search('file=([0-9,A-Z]+\.[a-z]+),', txt)
+    picname = re.search('file=([0-9,a-z]+\.[a-z]+),', txt)
     link = re.search('url=(.+)]', txt)
     print(picname, link)
     if session.is_first_run:

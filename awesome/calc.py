@@ -24,7 +24,7 @@ def safe_eval(eval_str, **kw):
 
 @on_natural_language(only_to_me=False)
 async def _(session: NLPSession):
-    if session.ctx.get('group_id') not in (1078259793, None):
+    if session.ctx.get('group_id') not in [None]:
         return None
     if session.ctx.get('user_id') not in (940012978,None):
         return None
